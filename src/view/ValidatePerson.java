@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Validate {
+public class ValidatePerson {
     private Pattern pattern;
     private Matcher matcher;
 

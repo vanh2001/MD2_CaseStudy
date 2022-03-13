@@ -4,8 +4,6 @@ import controller.PersonManager;
 import model.Person;
 import model.Shipper;
 
-import javax.sound.midi.Soundbank;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -63,7 +61,7 @@ public class Client {
     }
 
     public static Person createNewCustomer(){
-        Validate valid = new Validate();
+        ValidatePerson valid = new ValidatePerson();
 
         System.out.print("Input the id customer: ");
         String id = valid.checkNullString();
@@ -85,7 +83,7 @@ public class Client {
 
 
     public static Shipper createNewShipper(){
-        Validate valid = new Validate();
+        ValidatePerson valid = new ValidatePerson();
 
         System.out.print("Input the id shipper: ");
         String id = valid.checkNullString();
@@ -112,4 +110,6 @@ public class Client {
         Shipper s = new Shipper(id, name, age, address, phoneNumber, identityCard, area, status);
         return s;
     }
+
+
 }
