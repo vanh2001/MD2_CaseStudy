@@ -23,6 +23,8 @@ public class Client {
             choice = inputChoice.nextInt();
             switch (choice){
                 case 1:
+                    addNewPerson();
+                    PersonManager.displayAllPerson();
                     break;
                 case 2:
                     break;
@@ -30,6 +32,32 @@ public class Client {
                     System.exit(0);
                 default:
                     System.out.println("Please let's choose one!");
+            }
+        }
+    }
+
+    public static void addNewPerson() {
+        int choice = -1;
+        Scanner inputChoice = new Scanner(System.in);
+        while (choice != 0) {
+            System.out.println("Add new Person:");
+            System.out.println("1. New Custommer");
+            System.out.println("2. New Shipper ");
+            System.out.println("0. Return to main menu ");
+            choice = inputChoice.nextInt();
+            switch (choice) {
+                case 1:
+                    Person person = createNewCustomer();
+                    PersonManager.addPerson(person);
+                    break;
+                case 2:
+                    Shipper shipper = createNewShipper();
+                    PersonManager.addPerson(shipper);
+                    break;
+                case 0:
+                    return;
+                default:
+                    System.err.println("Please let's choose one!");
             }
         }
     }
@@ -49,7 +77,7 @@ public class Client {
         String address = valid.checkNullString();
 
         System.out.print("Input the phone number customer: ");
-        int phoneNumber;
+        String phoneNumber = valid.checkPhoneNumber();
 
         Person p = new Person(id, name, age, address, phoneNumber);
         return p;
@@ -71,7 +99,7 @@ public class Client {
         String address = valid.checkNullString();
 
         System.out.print("Input the phone number shipper: ");
-        String phoneNumber = valid.checkNullString();
+        String phoneNumber = valid.checkPhoneNumber();
 
         System.out.print("Input the identityCard shipper: ");
         String identityCard = valid.checkNullString();

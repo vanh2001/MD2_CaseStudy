@@ -41,10 +41,9 @@ public class Validate {
         String phoneNumber = "";
         while (!checkRegexPhoneNumber(phoneNumber)) {
             try {
-                System.out.print("Input the phone number: ");
                 phoneNumber = inputPhoneNumber.nextLine();
             }catch (Exception e){
-                System.err.println("");
+                e.printStackTrace();
             }
         }
         return phoneNumber;
