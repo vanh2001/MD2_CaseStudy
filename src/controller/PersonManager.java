@@ -1,11 +1,16 @@
 package controller;
 
 import model.Person;
+import storage.IPersonData;
+import storage.PersonFromFileBinary;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PersonManager {
+    public static IPersonData personData = new PersonFromFileBinary();
     public static ArrayList<Person> personList = new ArrayList<>();
+
 
     //Hiển thị danh sách:
     public static void displayAllPerson() {
@@ -17,6 +22,11 @@ public class PersonManager {
     //Thêm mới khách hàng
     public static void addPerson(Person person) {
         personList.add(person);
+        try {
+            personData.writeFile(personList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Lấy ra chuỗi id thành số
@@ -33,6 +43,11 @@ public class PersonManager {
     //Sửa khách hàng
     public static void getPersonByIndex(int index, Person person) {
         personList.set(index, person);
+        try {
+            personData.writeFile(personList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Xóa khách hàng
