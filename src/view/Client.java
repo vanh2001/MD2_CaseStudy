@@ -17,14 +17,15 @@ public class Client {
         int choice = -1;
         while (choice != 0){
             System.out.println("Menu");
+
             System.out.println("1. Add new Person");
             System.out.println("2. Add new Goods");
             System.out.println("0. Exit");
+            System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
             switch (choice){
                 case 1:
                     addNewPerson();
-                    PersonManager.displayAllPerson();
                     break;
                 case 2:
                     createNewGoods();
@@ -46,15 +47,18 @@ public class Client {
             System.out.println("1. New Custommer");
             System.out.println("2. New Shipper ");
             System.out.println("0. Return to main menu ");
+            System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
             switch (choice) {
                 case 1:
                     Person person = createNewCustomer();
                     PersonManager.addPerson(person);
+                    PersonManager.displayAllPerson();
                     break;
                 case 2:
                     Shipper shipper = createNewShipper();
                     PersonManager.addPerson(shipper);
+                    PersonManager.displayAllPerson();
                     break;
                 case 0:
                     return;
