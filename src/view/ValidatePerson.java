@@ -5,8 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidatePerson {
-    private Pattern pattern;
-    private Matcher matcher;
 
     private static final String PHONE_REGEX = "(84|0[3|5|7|8|9])+([0-9]{8})\\b";
 
@@ -31,8 +29,8 @@ public class ValidatePerson {
     }
 
     public boolean checkRegexPhoneNumber(String input){
-        pattern = Pattern.compile(PHONE_REGEX);
-        matcher = pattern.matcher(input);
+        Pattern pattern = Pattern.compile(PHONE_REGEX);
+        Matcher matcher = pattern.matcher(input);
         return matcher.matches();
     }
 
@@ -49,23 +47,6 @@ public class ValidatePerson {
         return phoneNumber;
     }
 
-    public double checkDouble(){
-        Scanner inputDouble = new Scanner(System.in);
-        double number;
-        while (true){
-            try {
-                number = Double.parseDouble(inputDouble.nextLine());
-                if(number > 0){
-                    break;
-                }else {
-                    System.err.println("Do not input negative number!");
-                }
-            }catch (Exception e){
-                System.err.println("Please input the number!");
-            }
-        }
-        return number;
-    }
 
     public String checkNullString(){
         Scanner inputString = new Scanner(System.in);

@@ -1,6 +1,8 @@
 package view;
 
+import controller.GoodsManager;
 import controller.PersonManager;
+import model.Goods;
 import model.Person;
 import model.Shipper;
 
@@ -25,6 +27,8 @@ public class Client {
                     PersonManager.displayAllPerson();
                     break;
                 case 2:
+                    createNewGoods();
+                    GoodsManager.displayAllGoods();
                     break;
                 case 0:
                     System.exit(0);
@@ -111,5 +115,23 @@ public class Client {
         return s;
     }
 
+    public static Goods createNewGoods(){
+        ValidateGoods valid = new ValidateGoods();
 
+        System.out.println("Input the id goods: ");
+        String id = valid.checkNullString();
+
+        System.out.println("Input the name goods: ");
+        String name = valid.checkNullString();
+
+        System.out.println("Input the price goods: ");
+        double price = valid.checkDouble();
+
+        Scanner inputAmount = new Scanner(System.in);
+        System.out.println("Input the amount goods: ");
+        int amount = inputAmount.nextInt();
+
+        Goods g = new Goods(id, name, price, amount);
+        return g;
+    }
 }
