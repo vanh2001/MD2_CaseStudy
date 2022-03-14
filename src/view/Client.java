@@ -17,9 +17,10 @@ public class Client {
         int choice = -1;
         while (choice != 0){
             System.out.println("Menu");
-
             System.out.println("1. Add new Person");
-            System.out.println("2. Add new Goods");
+            System.out.println("2. Show add Person");
+            System.out.println("3. Add new Goods");
+            System.out.println("4. Show add Goods");
             System.out.println("0. Exit");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -28,7 +29,13 @@ public class Client {
                     addNewPerson();
                     break;
                 case 2:
+                    PersonManager.displayAllPerson();
+                    break;
+                case 3:
                     createNewGoods();
+                    GoodsManager.displayAllGoods();
+                    break;
+                case 4:
                     GoodsManager.displayAllGoods();
                     break;
                 case 0:

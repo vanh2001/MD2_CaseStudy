@@ -66,6 +66,7 @@ public class ValidatePerson {
         Scanner inputStatus = new Scanner(System.in);
         boolean status = false;
         while (true){
+            System.out.print("Input the status shipper: ");
             status = inputStatus.nextBoolean();
             if (status){
                 break;
@@ -75,6 +76,5 @@ public class ValidatePerson {
         }
         return status;
     }
-
 
 }
