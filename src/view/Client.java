@@ -11,39 +11,32 @@ import java.util.Scanner;
 
 public class Client {
 
+    //menu chính
     public static void main(String[] args) {
         Scanner inputChoice = new Scanner(System.in);
         int choice = -1;
         while (choice != 0){
             System.out.println("Menu");
-            System.out.println("1. Add new Person");
+            System.out.println("1. Person");
             System.out.println("2. Show add Person");
-            System.out.println("3. Edit Person");
-            System.out.println("4. Add new Goods");
-            System.out.println("5. Show add Goods");
-            System.out.println("6. Edit Goods");
+            System.out.println("3. Goods");
+            System.out.println("4. Show add Goods");
             System.out.println("0. Exit");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
             switch (choice){
                 case 1:
-                    addNewPerson();
+                    person();
                     break;
                 case 2:
                     PersonManager.displayAllPerson();
                     break;
                 case 3:
-                    InputPerson.editPersonById();
+                    goods();
                     break;
                 case 4:
-                    InputGoods.createNewGoods();
                     GoodsManager.displayAllGoods();
                     break;
-                case 5:
-                    GoodsManager.displayAllGoods();
-                    break;
-                case 6:
-                    InputGoods.editGoodsById();
                 case 0:
                     System.exit(0);
                 default:
@@ -52,13 +45,15 @@ public class Client {
         }
     }
 
-    public static void addNewPerson() {
+    //Menu Person:
+    public static void person() {
         int choice = -1;
         Scanner inputChoice = new Scanner(System.in);
         while (choice != 0) {
-            System.out.println("Add new Person:");
-            System.out.println("1. New Custommer");
-            System.out.println("2. New Shipper ");
+            System.out.println("Person:");
+            System.out.println("1. Add New Custommer");
+            System.out.println("2. Add New Shipper ");
+            System.out.println("3. Edit Person");
             System.out.println("0. Return to main menu ");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -73,6 +68,10 @@ public class Client {
                     PersonManager.addPerson(shipper);
                     PersonManager.displayAllPerson();
                     break;
+                case 3:
+                    InputPerson.editPersonById();
+                    PersonManager.displayAllPerson();
+                    break;
                 case 0:
                     return;
                 default:
@@ -81,4 +80,32 @@ public class Client {
         }
     }
 
+    //Menu Goods:
+    public static void goods() {
+        int choice = -1;
+        Scanner inputChoice = new Scanner(System.in);
+        while (choice != 0) {
+            System.out.println("Goods:");
+            System.out.println("1. Add New Goods");
+            System.out.println("2. Edit Goods");
+            System.out.println("0. Return to main menu ");
+            System.out.print("Please your choice: ");
+            choice = inputChoice.nextInt();
+            switch (choice) {
+                case 1:
+                    Goods goods = InputGoods.createNewGoods();
+                    GoodsManager.addGoods(goods);
+                    GoodsManager.displayAllGoods();
+                    break;
+                case 2:
+                    InputGoods.editGoodsById();
+                    GoodsManager.displayAllGoods();
+                    break;
+                case 0:
+                    return;
+                default:
+                    System.err.println("Please let's choose one!");
+            }
+        }
+    }
 }
