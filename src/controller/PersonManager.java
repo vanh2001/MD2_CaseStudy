@@ -41,7 +41,7 @@ public class PersonManager {
     }
 
     //Sửa khách hàng
-    public static void getPersonByIndex(int index, Person person) {
+    public static void editPersonByIndex(int index, Person person) {
         personList.set(index, person);
         try {
             personData.writeFile(personList);
@@ -53,5 +53,10 @@ public class PersonManager {
     //Xóa khách hàng
     public static void deletePersonByIndex(int index) {
         personList.remove(index);
+        try {
+            personData.writeFile(personList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

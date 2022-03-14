@@ -21,7 +21,7 @@ public class GoodsManager {
     }
 
     //Thêm mới khách hàng
-    public static void addPerson(Goods goods) {
+    public static void addGoods(Goods goods) {
         goodsList.add(goods);
         try {
             goodsData.writeFile(goodsList);
@@ -31,7 +31,7 @@ public class GoodsManager {
     }
 
     //Lấy ra chuỗi id thành số
-    public static int getPersonById(String goodsId) {
+    public static int getGoodsById(String goodsId) {
         for (int i = 0; i < goodsList.size(); i++) {
             Goods goods = goodsList.get(i);
             if (goods.getGoodsId().equals(goodsId)) {
@@ -42,7 +42,7 @@ public class GoodsManager {
     }
 
     //Sửa khách hàng
-    public static void getPersonByIndex(int index, Goods goods) {
+    public static void editGoodsByIndex(int index, Goods goods) {
         goodsList.set(index, goods);
         try {
             goodsData.writeFile(goodsList);
@@ -52,7 +52,12 @@ public class GoodsManager {
     }
 
     //Xóa khách hàng
-    public static void deletePersonByIndex(int index) {
+    public static void deleteGoodsByIndex(int index) {
         goodsList.remove(index);
+        try {
+            goodsData.writeFile(goodsList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

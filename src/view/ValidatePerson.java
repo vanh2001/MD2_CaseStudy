@@ -14,7 +14,6 @@ public class ValidatePerson {
         int age;
         while (true) {
             try {
-                System.out.print("Input the age: ");
                 age = Integer.parseInt(inputAge.nextLine());
                 if(age >= 0 && age <= 100){
                     break;
@@ -66,7 +65,6 @@ public class ValidatePerson {
         Scanner inputStatus = new Scanner(System.in);
         boolean status = false;
         while (true){
-            System.out.print("Input the status shipper: ");
             status = inputStatus.nextBoolean();
             if (status){
                 break;
