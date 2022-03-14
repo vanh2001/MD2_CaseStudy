@@ -16,10 +16,8 @@ public class Client {
         int choice = -1;
         while (choice != 0){
             System.out.println("Menu");
-            System.out.println("1. Person");
-            System.out.println("2. Show add Person");
-            System.out.println("3. Goods");
-            System.out.println("4. Show add Goods");
+            System.out.println("1. Person Manager");
+            System.out.println("3. Goods Manager");
             System.out.println("0. Exit");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -28,13 +26,7 @@ public class Client {
                     person();
                     break;
                 case 2:
-                    PersonManager.displayAllPerson();
-                    break;
-                case 3:
                     goods();
-                    break;
-                case 4:
-                    GoodsManager.displayAllGoods();
                     break;
                 case 0:
                     System.exit(0);
@@ -49,11 +41,13 @@ public class Client {
         int choice = -1;
         Scanner inputChoice = new Scanner(System.in);
         while (choice != 0) {
-            System.out.println("Person:");
+            System.out.println("Person Manager: ");
             System.out.println("1. Add New Custommer");
             System.out.println("2. Add New Shipper ");
             System.out.println("3. Edit Person");
-            System.out.println("3. Remove Person");
+            System.out.println("4. Remove Person");
+            System.out.println("5. Search Person");
+            System.out.println("6. Display all Person");
             System.out.println("0. Return to main menu ");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -61,19 +55,21 @@ public class Client {
                 case 1:
                     Person person = InputPerson.createNewCustomer();
                     PersonManager.addPerson(person);
-                    PersonManager.displayAllPerson();
                     break;
                 case 2:
                     Shipper shipper = InputPerson.createNewShipper();
                     PersonManager.addPerson(shipper);
-                    PersonManager.displayAllPerson();
                     break;
                 case 3:
                     InputPerson.editPersonById();
-                    PersonManager.displayAllPerson();
                     break;
                 case 4:
                     InputPerson.deletePersonByIndex();
+                    break;
+                case 5:
+                    InputPerson.searchPersonById();
+                    break;
+                case 6:
                     PersonManager.displayAllPerson();
                     break;
                 case 0:
@@ -89,10 +85,12 @@ public class Client {
         int choice = -1;
         Scanner inputChoice = new Scanner(System.in);
         while (choice != 0) {
-            System.out.println("Goods:");
+            System.out.println("Goods Manager: ");
             System.out.println("1. Add New Goods");
             System.out.println("2. Edit Goods");
-            System.out.println("2. Remove Goods");
+            System.out.println("3. Remove Goods");
+            System.out.println("4. Search Goods");
+            System.out.println("5. Display all Goods");
             System.out.println("0. Return to main menu ");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -100,14 +98,17 @@ public class Client {
                 case 1:
                     Goods goods = InputGoods.createNewGoods();
                     GoodsManager.addGoods(goods);
-                    GoodsManager.displayAllGoods();
                     break;
                 case 2:
                     InputGoods.editGoodsById();
-                    GoodsManager.displayAllGoods();
                     break;
                 case 3:
                     InputGoods.deleteGoodsByIndex();
+                    break;
+                case 4:
+                    InputGoods.searchGoodsById();
+                    break;
+                case 5:
                     GoodsManager.displayAllGoods();
                     break;
                 case 0:

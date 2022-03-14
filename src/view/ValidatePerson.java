@@ -40,7 +40,7 @@ public class ValidatePerson {
             try {
                 phoneNumber = inputPhoneNumber.nextLine();
             }catch (Exception e){
-                e.printStackTrace();
+                System.err.println("Input age again!!!");
             }
         }
         return phoneNumber;

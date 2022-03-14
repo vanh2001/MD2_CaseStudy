@@ -124,14 +124,14 @@ public class InputPerson {
     }
 
     public static void deletePersonByIndex(){
-        System.out.println("Input Person's id need remove: ");
+        System.out.print("Input Person's id need remove: ");
         String id = valid.checkNullString();
         int index = PersonManager.getPersonById(id);
         PersonManager.deletePersonByIndex(index);
     }
 
-    public static void searchPersonByName () {
-        System.out.println("Input Person's id: ");
+    public static void searchPersonById () {
+        System.out.print("Input Person's id: ");
         while (true) {
             String idPerson = valid.checkNullString();
             int index = PersonManager.getPersonById(idPerson);

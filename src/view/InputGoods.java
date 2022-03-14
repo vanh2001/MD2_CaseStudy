@@ -61,14 +61,14 @@ public class InputGoods {
     }
 
     public static void deleteGoodsByIndex(){
-        System.out.println("Input Goods's id need remove: ");
+        System.out.print("Input Goods's id need remove: ");
         String id = valid.checkNullString();
         int index = GoodsManager.getGoodsById(id);
         GoodsManager.deleteGoodsByIndex(index);
     }
 
-    public static void searchGoodsByName () {
-        System.out.println("Input Goods's id: ");
+    public static void searchGoodsById () {
+        System.out.print("Input Goods's id: ");
         while (true) {
             String idGoods = valid.checkNullString();
             int index = GoodsManager.getGoodsById(idGoods);
