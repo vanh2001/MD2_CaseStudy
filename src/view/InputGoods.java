@@ -1,6 +1,7 @@
 package view;
 
 import controller.GoodsManager;
+import controller.PersonManager;
 import model.Goods;
 
 import java.util.List;
@@ -8,9 +9,10 @@ import java.util.Scanner;
 
 public class InputGoods {
     private static List<Goods> goodsListClient = GoodsManager.goodsList;
+    public static ValidateGoods valid = new ValidateGoods();
+
 
     public static Goods createNewGoods(){
-        ValidateGoods valid = new ValidateGoods();
 
         System.out.println("Input the id goods: ");
         String id = valid.checkNullString();
@@ -30,7 +32,6 @@ public class InputGoods {
     }
 
     public static void editGoodsById(){
-        ValidateGoods valid = new ValidateGoods();
         System.out.println("Input Goods's need edit: ");
         String id = valid.checkNullString();
         int check = -1;
@@ -60,10 +61,23 @@ public class InputGoods {
     }
 
     public static void deleteGoodsByIndex(){
-        ValidateGoods valid = new ValidateGoods();
         System.out.println("Input Goods's id need remove: ");
         String id = valid.checkNullString();
         int index = GoodsManager.getGoodsById(id);
         GoodsManager.deleteGoodsByIndex(index);
+    }
+
+    public static void searchGoodsByName () {
+        System.out.println("Input Goods's id: ");
+        while (true) {
+            String idGoods = valid.checkNullString();
+            int index = GoodsManager.getGoodsById(idGoods);
+            if (index == -1) {
+                System.err.println("Can't find this goods! Input again!");
+            } else {
+                System.out.println(goodsListClient.get(index));
+                break;
+            }
+        }
     }
 }

@@ -130,5 +130,17 @@ public class InputPerson {
         PersonManager.deletePersonByIndex(index);
     }
 
-
+    public static void searchPersonByName () {
+        System.out.println("Input Person's id: ");
+        while (true) {
+            String idPerson = valid.checkNullString();
+            int index = PersonManager.getPersonById(idPerson);
+            if (index == -1) {
+                System.err.println("Can't find this person! Input again!");
+            } else {
+                System.out.println(personListClient.get(index));
+                break;
+            }
+        }
+    }
 }
