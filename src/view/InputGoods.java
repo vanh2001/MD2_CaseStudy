@@ -1,9 +1,7 @@
 package view;
 
 import controller.GoodsManager;
-import controller.PersonManager;
 import model.Goods;
-import model.Person;
 
 import java.util.List;
 import java.util.Scanner;
@@ -59,5 +57,13 @@ public class InputGoods {
                 GoodsManager.editGoodsByIndex(index, g);
             }
         }
+    }
+
+    public static void deleteGoodsByIndex(){
+        ValidateGoods valid = new ValidateGoods();
+        System.out.println("Input Goods's id need remove: ");
+        String id = valid.checkNullString();
+        int index = GoodsManager.getGoodsById(id);
+        GoodsManager.deleteGoodsByIndex(index);
     }
 }

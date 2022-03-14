@@ -8,9 +8,10 @@ import java.util.List;
 
 public class InputPerson {
     private static List<Person> personListClient = PersonManager.personList;
+    public static ValidatePerson valid = new ValidatePerson();
+
 
     public static Person createNewCustomer(){
-        ValidatePerson valid = new ValidatePerson();
 
         System.out.print("Input the id customer: ");
         String id = valid.checkNullString();
@@ -33,7 +34,6 @@ public class InputPerson {
 
 
     public static Shipper createNewShipper(){
-        ValidatePerson valid = new ValidatePerson();
 
         System.out.print("Input the id shipper: ");
         String id = valid.checkNullString();
@@ -64,7 +64,6 @@ public class InputPerson {
     }
 
     public static void editPersonById(){
-        ValidatePerson valid = new ValidatePerson();
         System.out.print("Input Person's Id need edit: ");
         String id = valid.checkNullString();
         int check = -1;
@@ -123,4 +122,13 @@ public class InputPerson {
             }
         }
     }
+
+    public static void deletePersonByIndex(){
+        System.out.println("Input Person's id need remove: ");
+        String id = valid.checkNullString();
+        int index = PersonManager.getPersonById(id);
+        PersonManager.deletePersonByIndex(index);
+    }
+
+
 }

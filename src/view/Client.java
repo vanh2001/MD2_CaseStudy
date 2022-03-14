@@ -6,7 +6,6 @@ import model.Goods;
 import model.Person;
 import model.Shipper;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class Client {
@@ -54,6 +53,7 @@ public class Client {
             System.out.println("1. Add New Custommer");
             System.out.println("2. Add New Shipper ");
             System.out.println("3. Edit Person");
+            System.out.println("3. Remove Person");
             System.out.println("0. Return to main menu ");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -72,6 +72,10 @@ public class Client {
                     InputPerson.editPersonById();
                     PersonManager.displayAllPerson();
                     break;
+                case 4:
+                    InputPerson.deletePersonByIndex();
+                    PersonManager.displayAllPerson();
+                    break;
                 case 0:
                     return;
                 default:
@@ -88,6 +92,7 @@ public class Client {
             System.out.println("Goods:");
             System.out.println("1. Add New Goods");
             System.out.println("2. Edit Goods");
+            System.out.println("2. Remove Goods");
             System.out.println("0. Return to main menu ");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();
@@ -99,6 +104,10 @@ public class Client {
                     break;
                 case 2:
                     InputGoods.editGoodsById();
+                    GoodsManager.displayAllGoods();
+                    break;
+                case 3:
+                    InputGoods.deleteGoodsByIndex();
                     GoodsManager.displayAllGoods();
                     break;
                 case 0:
