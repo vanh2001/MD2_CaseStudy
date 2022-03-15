@@ -17,7 +17,7 @@ public class Client {
         while (choice != 0){
             System.out.println("Menu");
             System.out.println("1. Person Manager");
-            System.out.println("3. Goods Manager");
+            System.out.println("2. Goods Manager");
             System.out.println("0. Exit");
             System.out.print("Please your choice: ");
             choice = inputChoice.nextInt();

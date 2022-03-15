@@ -1,8 +1,6 @@
 package controller;
 
 import model.Goods;
-import model.Person;
-import model.Shipper;
 import storage.GoodsFromFileBinary;
 import storage.IGoodsData;
 
